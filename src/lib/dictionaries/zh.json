@@ -1,0 +1,78 @@
+{
+  "nav": {
+    "getStarted": "開始使用",
+    "docs": "文檔"
+  },
+  "hero": {
+    "title": "讓 AI 成為你的",
+    "titleHighlight": "台股研究助理",
+    "subtitle": "透過 ChatGPT、Claude 等 AI 助理，即時查詢台股資料、管理追蹤清單、設定到價通知",
+    "ctaChatGPT": "在 ChatGPT 中開始",
+    "ctaClaude": "在 Claude Code 使用"
+  },
+  "demo": {
+    "title": "對話式查詢，直覺又高效",
+    "userMessage": "台積電最近三天的股價表現如何？",
+    "aiResponse": "根據最新資料，台積電 (2330) 近三日表現：\n• 2/5: 收盤 1,765 元 (-1.12%)\n• 2/4: 收盤 1,785 元 (-0.83%)\n• 2/3: 收盤 1,800 元 (+1.98%)"
+  },
+  "features": {
+    "title": "強大功能，一應俱全",
+    "stockData": {
+      "title": "股票資料查詢",
+      "description": "55+ 種資料類型，從即時價量到完整財報，應有盡有"
+    },
+    "watchlist": {
+      "title": "追蹤清單管理",
+      "description": "建立個人化追蹤清單，隨時掌握關注標的"
+    },
+    "priceAlert": {
+      "title": "到價通知",
+      "description": "設定價格條件，觸發即時推播通知"
+    },
+    "notes": {
+      "title": "投資筆記",
+      "description": "為個股記錄分析筆記，整合研究流程"
+    }
+  },
+  "platforms": {
+    "title": "多平台支援",
+    "chatgpt": {
+      "title": "ChatGPT",
+      "description": "透過 ChatGPT Apps 直接啟用，對話式查詢，最直覺的體驗"
+    },
+    "claude": {
+      "title": "Claude Code & MCP",
+      "description": "開發者友善，支援 MCP 協議，可整合至各種 AI 工具"
+    }
+  },
+  "quickstart": {
+    "title": "快速開始",
+    "chatgpt": {
+      "title": "ChatGPT 用戶",
+      "step1": "開啟 ChatGPT",
+      "step2": "搜尋「Fugle」並啟用 App",
+      "step3": "開始對話查詢台股資料"
+    },
+    "developer": {
+      "title": "開發者",
+      "step1": "安裝 Claude Code 或支援 MCP 的客戶端",
+      "step2": "連接 Fugle Remote MCP Server",
+      "step3": "開始使用台股資料工具"
+    }
+  },
+  "footer": {
+    "product": "產品",
+    "fugleApp": "富果 App",
+    "fugleAPI": "Fugle API",
+    "resources": "資源",
+    "docs": "API 文檔",
+    "support": "技術支援",
+    "company": "公司",
+    "about": "關於富果",
+    "careers": "加入我們",
+    "legal": "法律",
+    "privacy": "隱私權政策",
+    "terms": "服務條款",
+    "copyright": "© 2026 Fugle. All rights reserved."
+  }
+}

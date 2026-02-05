@@ -1,0 +1,78 @@
+{
+  "nav": {
+    "getStarted": "Get Started",
+    "docs": "Docs"
+  },
+  "hero": {
+    "title": "Your AI-Powered",
+    "titleHighlight": "Taiwan Stock Assistant",
+    "subtitle": "Query real-time Taiwan stock data, manage watchlists, and set price alerts through ChatGPT, Claude, and more",
+    "ctaChatGPT": "Start with ChatGPT",
+    "ctaClaude": "Use with Claude Code"
+  },
+  "demo": {
+    "title": "Conversational queries, intuitive and efficient",
+    "userMessage": "How has TSMC performed in the last 3 days?",
+    "aiResponse": "Based on the latest data, TSMC (2330) performance over the past 3 days:\n• 2/5: Closed at NT$1,765 (-1.12%)\n• 2/4: Closed at NT$1,785 (-0.83%)\n• 2/3: Closed at NT$1,800 (+1.98%)"
+  },
+  "features": {
+    "title": "Powerful Features",
+    "stockData": {
+      "title": "Stock Data Query",
+      "description": "55+ data types, from real-time prices to complete financials"
+    },
+    "watchlist": {
+      "title": "Watchlist Management",
+      "description": "Create personalized watchlists to track your interests"
+    },
+    "priceAlert": {
+      "title": "Price Alerts",
+      "description": "Set price conditions and receive instant push notifications"
+    },
+    "notes": {
+      "title": "Investment Notes",
+      "description": "Record analysis notes for stocks, streamline your research"
+    }
+  },
+  "platforms": {
+    "title": "Multi-Platform Support",
+    "chatgpt": {
+      "title": "ChatGPT",
+      "description": "Enable directly through ChatGPT Apps for the most intuitive conversational experience"
+    },
+    "claude": {
+      "title": "Claude Code & MCP",
+      "description": "Developer-friendly, supports MCP protocol, integrates with various AI tools"
+    }
+  },
+  "quickstart": {
+    "title": "Quick Start",
+    "chatgpt": {
+      "title": "ChatGPT Users",
+      "step1": "Open ChatGPT",
+      "step2": "Search for \"Fugle\" and enable the App",
+      "step3": "Start querying Taiwan stock data"
+    },
+    "developer": {
+      "title": "Developers",
+      "step1": "Install Claude Code or an MCP-compatible client",
+      "step2": "Connect to Fugle Remote MCP Server",
+      "step3": "Start using Taiwan stock data tools"
+    }
+  },
+  "footer": {
+    "product": "Product",
+    "fugleApp": "Fugle App",
+    "fugleAPI": "Fugle API",
+    "resources": "Resources",
+    "docs": "API Docs",
+    "support": "Support",
+    "company": "Company",
+    "about": "About Fugle",
+    "careers": "Careers",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "© 2026 Fugle. All rights reserved."
+  }
+}
