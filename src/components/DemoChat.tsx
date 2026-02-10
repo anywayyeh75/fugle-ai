@@ -70,7 +70,7 @@ export default function DemoChat({ dict }: DemoChatProps) {
             <div className="w-3 h-3 rounded-full bg-red-500" />
             <div className="w-3 h-3 rounded-full bg-yellow-500" />
             <div className="w-3 h-3 rounded-full bg-green-500" />
-            <span className="ml-4 text-sm text-gray-400">Fugle AI Assistant</span>
+            {/* <span className="ml-4 text-sm text-gray-400">Fugle AI Assistant</span> */}
           </div>
 
           {/* Chat messages */}

@@ -72,11 +72,11 @@ export default function Features({ dict }: FeaturesProps) {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group bg-gray-900/50 border border-gray-800 rounded-2xl p-6 hover:border-fugle-500/50 transition-all duration-300 card-glow"
             >
-              <div className="w-14 h-14 bg-fugle-500/10 rounded-xl flex items-center justify-center text-fugle-500 mb-4 group-hover:bg-fugle-500/20 transition-colors">
+              <div className="w-14 h-14 bg-fugle-500/10 rounded-xl flex items-center justify-center text-fugle-500 mb-4 group-hover:bg-fugle-500/20 transition-colors mx-auto">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
-              <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+              <h3 className="text-xl font-semibold text-white mb-2 text-center">{feature.title}</h3>
+              <p className="text-gray-400 leading-relaxed text-center">{feature.description}</p>
             </motion.div>
           ))}
         </div>

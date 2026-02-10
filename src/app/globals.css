@@ -6,7 +6,7 @@
   --color-fugle-200: #FFE699;
   --color-fugle-300: #FFD966;
   --color-fugle-400: #FFCC33;
-  --color-fugle-500: #F5A623;
+  --color-fugle-500: #F4AF1C;
   --color-fugle-600: #E09000;
   --color-fugle-700: #B87300;
   --color-fugle-800: #8F5900;
@@ -30,11 +30,11 @@ body {
 
 /* Glow effect for cards */
 .card-glow {
-  box-shadow: 0 0 40px rgba(245, 166, 35, 0.1);
+  box-shadow: 0 0 40px rgba(244, 175, 28, 0.1);
 }
 
 .card-glow:hover {
-  box-shadow: 0 0 60px rgba(245, 166, 35, 0.2);
+  box-shadow: 0 0 60px rgba(244, 175, 28, 0.2);
 }
 
 /* Typing cursor animation */
@@ -46,5 +46,5 @@ body {
 .typing-cursor::after {
   content: '|';
   animation: blink 1s infinite;
-  color: #F5A623;
+  color: #F4AF1C;
 }
