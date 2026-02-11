@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { ChatGPT, Claude } from '@/components/icons'
 import type { Dictionary } from '@/lib/i18n'
 
 interface QuickStartProps {
@@ -30,13 +31,11 @@ export default function QuickStart({ dict }: QuickStartProps) {
             initial={{ y: 30, opacity: 0 }}
             animate={isInView ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-black/50 border border-gray-800 rounded-2xl p-8"
+            className="flex flex-col bg-black/50 border border-gray-800 rounded-2xl p-8"
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 bg-[#10a37f]/20 rounded-lg flex items-center justify-center">
-                <svg className="w-6 h-6 text-[#10a37f]" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073z" />
-                </svg>
+                <ChatGPT width="24" height="24" fill="#10a37f" />
               </div>
               <h3 className="text-xl font-bold text-white">{dict.quickstart.chatgpt.title}</h3>
             </div>
@@ -54,9 +53,9 @@ export default function QuickStart({ dict }: QuickStartProps) {
 
             <a
               href="#"
-              className="mt-8 inline-flex items-center justify-center w-full px-6 py-3 bg-fugle-500 hover:bg-fugle-600 text-black font-semibold rounded-xl transition-colors"
+              className="mt-auto inline-flex items-center justify-center w-full px-6 py-3 bg-fugle-500 hover:bg-fugle-600 text-black font-semibold rounded-xl transition-colors"
             >
-              Open ChatGPT
+              開啟 ChatGPT
               <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
@@ -71,11 +70,8 @@ export default function QuickStart({ dict }: QuickStartProps) {
             className="bg-black/50 border border-gray-800 rounded-2xl p-8"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-[#d97706]/20 rounded-lg flex items-center justify-center">
-                <svg className="w-6 h-6 text-[#d97706]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M8 9l3 3-3 3" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M13 15h3" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+              <div className="w-10 h-10 bg-[#D97757]/20 rounded-lg flex items-center justify-center">
+                <Claude width="24" height="24" fill="#D97757" />
               </div>
               <h3 className="text-xl font-bold text-white">{dict.quickstart.developer.title}</h3>
             </div>
@@ -98,7 +94,7 @@ export default function QuickStart({ dict }: QuickStartProps) {
                 <span className="text-purple-400">&quot;fugle&quot;</span>: {'{'}
               </div>
               <div className="text-gray-300 pl-4">
-                <span className="text-purple-400">&quot;url&quot;</span>: <span className="text-green-400">&quot;https://mcp.fugle.tw&quot;</span>
+                <span className="text-purple-400">&quot;url&quot;</span>: <span className="text-green-400">&quot;https://www.fugle.tw/api/v2/mcp&quot;</span>
               </div>
               <div className="text-gray-300">{'}'}</div>
             </div>

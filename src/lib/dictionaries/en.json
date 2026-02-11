@@ -6,7 +6,8 @@
   "hero": {
     "title": "Your AI-Powered",
     "titleHighlight": "Taiwan Stock Assistant",
-    "subtitle": "Query real-time Taiwan stock data, manage watchlists, and set price alerts through ChatGPT, Claude, and more",
+    "subtitle": "With AI assistants you can",
+    "subtitleHighlight": "query real-time stock data, manage watchlists, set price alerts, and write research notes",
     "ctaChatGPT": "Start with ChatGPT",
     "ctaClaude": "Use with Claude Code"
   },
@@ -59,20 +60,5 @@
       "step2": "Connect to Fugle Remote MCP Server",
       "step3": "Start using Taiwan stock data tools"
     }
-  },
-  "footer": {
-    "product": "Product",
-    "fugleApp": "Fugle App",
-    "fugleAPI": "Fugle API",
-    "resources": "Resources",
-    "docs": "API Docs",
-    "support": "Support",
-    "company": "Company",
-    "about": "About Fugle",
-    "careers": "Careers",
-    "legal": "Legal",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "copyright": "© 2026 Fugle. All rights reserved."
   }
 }
