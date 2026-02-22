@@ -13,8 +13,20 @@
   },
   "demo": {
     "title": "From analysis to action, in one message",
-    "userMessage": "Analyze TSMC's latest earnings. Add to watchlist if worth tracking, and alert me at a fair price",
-    "aiResponse": "TSMC (2330) Analysis:\n\n2025 Q3 EPS NT$17.44 (YoY +39%), trailing 4Q total NT$61.2. Current price NT$1,915, P/E ~31x. Jan revenue NT$401.3B (YoY +36.8%), growth remains strong but decelerating.\n\n✅ Added to \"Close Watch\" watchlist\n✅ Price alert set: notify at NT$1,800\n✅ Note saved: 2025Q3 EPS 17.44, P/E 31x, watch for growth slowdown"
+    "conversations": [
+      {
+        "userMessage": "Analyze TSMC's latest earnings. Add to watchlist if worth tracking, and alert me at a fair price",
+        "aiResponse": "TSMC (2330) Analysis:\n\n2025 Q3 EPS NT$17.44 (YoY +39%), trailing 4Q total NT$61.2. Current price NT$1,915, P/E ~31x. Jan revenue NT$401.3B (YoY +36.8%), growth remains strong but decelerating.\n\n✅ Added to \"Close Watch\" watchlist\n✅ Price alert set: notify at NT$1,800\n✅ Note saved: 2025Q3 EPS 17.44, P/E 31x, watch for growth slowdown"
+      },
+      {
+        "userMessage": "How is my watchlist performing today?",
+        "aiResponse": "Your \"Close Watch\" list today:\n\n📈 Top Gainers\n• Delta Electronics (2308) NT$410 +3.5%\n• Hon Hai (2317) NT$198 +2.1%\n• Alchip (3661) NT$2,850 +1.8%\n\n📉 Top Losers\n• E Ink (8069) NT$186 -1.6%\n• Nan Ya (1303) NT$42.5 -1.2%\n• E.SUN Financial (2884) NT$28.3 -0.7%\n\nOverall: 20 of 32 stocks up, weighted average +0.8%"
+      },
+      {
+        "userMessage": "Record my observations on Hon Hai today",
+        "aiResponse": "Fetched latest data for Hon Hai (2317), here's your note:\n\n✅ Note saved for Hon Hai (2317)\n\n📝 Summary:\n• Price NT$198, P/E 12.3x\n• 2025 Q3 revenue NT$1.85T (YoY +20.1%)\n• AI server shipments strong, GB200 in mass production\n• Key watch: Q4 AI server revenue mix trend"
+      }
+    ]
   },
   "features": {
     "title": "Powerful Features",

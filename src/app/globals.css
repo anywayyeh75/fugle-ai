@@ -37,6 +37,12 @@ body {
   box-shadow: 0 0 60px rgba(244, 175, 28, 0.2);
 }
 
+/* Progress bar fill for DemoChat carousel */
+@keyframes progress-fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
 /* Typing cursor animation */
 @keyframes blink {
   0%, 50% { opacity: 1; }
