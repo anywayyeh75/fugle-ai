@@ -58,7 +58,7 @@ export default function Platforms({ dict }: PlatformsProps) {
 
             <div className="mt-auto">
               <a
-                href="https://claude.ai"
+                href="https://claude.ai/settings/connectors?modal=add-custom-connector"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-full px-6 py-3 bg-[#D97757] hover:bg-[#c56847] text-white font-semibold rounded-xl transition-colors"

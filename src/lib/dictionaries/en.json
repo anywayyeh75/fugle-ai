@@ -44,7 +44,7 @@
       "step2": "Click Add custom connector, enter the Fugle MCP Server URL",
       "step3": "Complete OAuth login, start chatting",
       "note": "Requires Pro plan or above",
-      "cta": "Open Claude.ai"
+      "cta": "Add Connector"
     },
     "claudeCode": {
       "title": "Claude Code",

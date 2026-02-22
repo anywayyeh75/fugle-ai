@@ -44,7 +44,7 @@
       "step2": "點擊 Add custom connector，輸入 Fugle MCP Server 網址",
       "step3": "完成 OAuth 登入授權，開始對話",
       "note": "需要 Pro 以上方案",
-      "cta": "開啟 Claude.ai"
+      "cta": "新增 Connector"
     },
     "claudeCode": {
       "title": "Claude Code",
