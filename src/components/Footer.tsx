@@ -18,7 +18,7 @@ const FUGLE_LINKS = [
     title: '關於富果',
     links: [
       { id: 'about', title: '關於我們', href: 'https://www.fugle.tw/about' },
-      { id: 'contact', title: '聯絡我們', href: 'https://support.fugle.tw/online-service/' },
+      { id: 'contact', title: '聯絡我們', href: 'mailto:marketing@fugle.tw' },
     ],
   },
   {
