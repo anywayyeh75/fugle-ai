@@ -71,7 +71,7 @@ export default function Footer() {
                   <p className="text-sm text-[#ccc] mb-3">{link.title}</p>
                   {link.links.map((item) => (
                     <li key={item.id} className="py-0.5">
-                      <Link href={item.href} rel="noopener noreferrer" target="_blank" className="hover:text-fugle-500 transition-all duration-100 ease-out">
+                      <Link href={item.href} rel="noopener noreferrer" {...(item.href.startsWith('mailto:') ? {} : { target: '_blank' })} className="hover:text-fugle-500 transition-all duration-100 ease-out">
                         {item.title}
                       </Link>
                     </li>
