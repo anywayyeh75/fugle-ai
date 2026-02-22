@@ -30,7 +30,7 @@ src/
 ├── components/
 │   ├── Navigation.tsx      # 頂部導覽列（固定定位）
 │   ├── Hero.tsx            # 首屏區塊
-│   ├── DemoChat.tsx        # AI 對話 Demo（含打字機動畫）
+│   ├── DemoChat.tsx        # AI 對話 Demo（3 組對話自動輪播 + 打字機動畫）
 │   ├── Features.tsx        # 功能介紹（4 卡片）
 │   ├── Platforms.tsx       # 平台支援（ChatGPT / Claude）
 │   ├── QuickStart.tsx      # 快速開始步驟
@@ -69,6 +69,7 @@ public/
 - 暗色主題：黑底 (`bg-black`) + 白/灰色文字
 - 字型：Inter + Noto Sans TC
 - 自訂 CSS class：`hero-gradient`、`card-glow`、`typing-cursor`
+- 自訂 CSS keyframe：`progress-fill`（DemoChat 進度條動畫）
 
 ### 路徑別名
 
@@ -86,6 +87,17 @@ public/
 - 所有 icon 為 inline SVG 元件，無外部 SVG 檔案
 - 統一介面：`{ width?: string; height?: string; className?: string; fill?: string }`
 - 從 `@/components/icons` barrel import
+
+## DemoChat 輪播機制
+
+- `demo.conversations` 為陣列，包含 3 組對話（財報分析、追蹤清單、投資筆記）
+- 自動輪播：每 8 秒切換下一組（`INTERVAL_MS = 8000`）
+- IG Stories 風格進度條：卡片頂部 3 段橫條，當前段動態填充，已播段全滿，未播段空
+- 進度條可點擊手動跳轉，點擊後重置自動計時器
+- 切換動畫：`AnimatePresence` + `motion` fade/slide
+- TypeWriter 每次切換用 `key={activeIndex}` 強制 re-mount 重新打字
+- 進度條使用 CSS `scaleX` + `transform-origin: left` 做 GPU 加速填充動畫
+- 進度條配色低調：白色半透明（`white/45` on `white/10`），不搶對話內容注意力
 
 ## 注意事項
 
