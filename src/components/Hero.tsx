@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChatGPT, MCP } from "@/components/icons";
+import { ChatGPT, Claude } from "@/components/icons";
 import type { Dictionary } from "@/lib/i18n";
 
 interface HeroProps {
@@ -47,21 +47,18 @@ export default function Hero({ dict }: HeroProps) {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <a
-            href="https://chatgpt.com/"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#platforms"
             className="flex-1 whitespace-nowrap px-8 py-4 bg-fugle-500 hover:bg-fugle-600 text-black font-semibold rounded-xl text-lg transition-all hover:scale-105 flex items-center justify-center gap-2"
+          >
+            <Claude width="24" height="24" fill="currentColor" />
+            {dict.hero.ctaClaude}
+          </a>
+          <span
+            className="flex-1 whitespace-nowrap px-8 py-4 border-2 border-dashed border-gray-600 text-gray-500 font-semibold rounded-xl text-lg flex items-center justify-center gap-2 opacity-50 cursor-not-allowed"
           >
             <ChatGPT width="24" height="24" fill="currentColor" />
             {dict.hero.ctaChatGPT}
-          </a>
-          <a
-            href="#platforms"
-            className="flex-1 whitespace-nowrap px-8 py-4 border-2 border-fugle-500 hover:bg-fugle-500/10 text-fugle-500 font-semibold rounded-xl text-lg transition-all hover:scale-105 flex items-center justify-center gap-2"
-          >
-            <MCP width="28" height="28" stroke="currentColor" />
-            {dict.hero.ctaClaude}
-          </a>
+          </span>
         </motion.div>
       </div>
     </section>

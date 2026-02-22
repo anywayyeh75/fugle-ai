@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { ChatGPT, MCP } from '@/components/icons'
+import { ChatGPT, Claude, MCP } from '@/components/icons'
 import type { Dictionary } from '@/lib/i18n'
 
 interface PlatformsProps {
@@ -25,26 +25,24 @@ export default function Platforms({ dict }: PlatformsProps) {
           {dict.platforms.title}
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 md:grid-rows-[auto_auto_auto_1fr] gap-x-8 gap-y-[24px]">
-          {/* ChatGPT */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Claude.ai */}
           <motion.div
             initial={{ x: -30, opacity: 0 }}
             animate={isInView ? { x: 0, opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="grid grid-rows-subgrid row-span-4 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 rounded-2xl p-8 hover:border-fugle-500/30 transition-all card-glow"
+            className="flex flex-col bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 rounded-2xl p-8 hover:border-[#D97757]/30 transition-all card-glow"
           >
-            <div className="w-16 h-16 bg-[#10a37f]/20 rounded-2xl flex items-center justify-center">
-              <ChatGPT width="40" height="40" fill="#10a37f" />
+            <div className="w-16 h-16 bg-[#D97757]/20 rounded-2xl flex items-center justify-center mb-6">
+              <Claude width="40" height="40" fill="#D97757" />
             </div>
-            <div className="flex flex-col gap-2">
-              <h3 className="text-2xl font-bold text-white">{dict.platforms.chatgpt.title}</h3>
-              <p className="text-gray-400 leading-relaxed">{dict.platforms.chatgpt.description}</p>
-            </div>
+            <h3 className="text-2xl font-bold text-white mb-2">{dict.platforms.claudeAi.title}</h3>
+            <p className="text-gray-400 leading-relaxed mb-6">{dict.platforms.claudeAi.description}</p>
 
-            <ol className="space-y-4">
-              {[dict.quickstart.chatgpt.step1, dict.quickstart.chatgpt.step2, dict.quickstart.chatgpt.step3].map((step, index) => (
+            <ol className="space-y-4 mb-6">
+              {[dict.platforms.claudeAi.step1, dict.platforms.claudeAi.step2, dict.platforms.claudeAi.step3].map((step, index) => (
                 <li key={index} className="flex items-start gap-4">
-                  <span className="flex-shrink-0 w-8 h-8 bg-fugle-500 text-black rounded-full flex items-center justify-center font-bold text-sm">
+                  <span className="flex-shrink-0 w-8 h-8 bg-[#D97757] text-white rounded-full flex items-center justify-center font-bold text-sm">
                     {index + 1}
                   </span>
                   <span className="text-gray-300 pt-1">{step}</span>
@@ -52,38 +50,45 @@ export default function Platforms({ dict }: PlatformsProps) {
               ))}
             </ol>
 
-            <a
-              href="https://chatgpt.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="self-end inline-flex items-center justify-center w-full px-6 py-3 bg-fugle-500 hover:bg-fugle-600 text-black font-semibold rounded-xl transition-colors"
-            >
-              開啟 ChatGPT
-              <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
+            {/* MCP Server URL */}
+            <div className="bg-gray-950 rounded-xl p-4 font-mono text-sm overflow-x-auto mb-8">
+              <div className="text-gray-500 text-xs mb-1">MCP Server URL</div>
+              <div className="text-green-400">https://www.fugle.tw/api/v2/mcp</div>
+            </div>
+
+            <div className="mt-auto">
+              <a
+                href="https://claude.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-full px-6 py-3 bg-[#D97757] hover:bg-[#c56847] text-white font-semibold rounded-xl transition-colors"
+              >
+                {dict.platforms.claudeAi.cta}
+                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+              <p className="text-gray-500 text-sm mt-3 text-center">* {dict.platforms.claudeAi.note}</p>
+            </div>
           </motion.div>
 
-          {/* Claude Code / MCP */}
+          {/* Claude Code */}
           <motion.div
             initial={{ x: 30, opacity: 0 }}
             animate={isInView ? { x: 0, opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="grid grid-rows-subgrid row-span-4 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 rounded-2xl p-8 hover:border-fugle-500/30 transition-all card-glow"
+            className="flex flex-col bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 rounded-2xl p-8 hover:border-[#D97757]/30 transition-all card-glow"
           >
-            <div className="w-16 h-16 bg-[#D97757]/20 rounded-2xl flex items-center justify-center">
+            <div className="w-16 h-16 bg-[#D97757]/20 rounded-2xl flex items-center justify-center mb-6">
               <MCP width="40" height="40" stroke="#D97757" />
             </div>
-            <div className="flex flex-col gap-2">
-              <h3 className="text-2xl font-bold text-white">{dict.platforms.claude.title}</h3>
-              <p className="text-gray-400 leading-relaxed">{dict.platforms.claude.description}</p>
-            </div>
+            <h3 className="text-2xl font-bold text-white mb-2">{dict.platforms.claudeCode.title}</h3>
+            <p className="text-gray-400 leading-relaxed mb-6">{dict.platforms.claudeCode.description}</p>
 
-            <ol className="space-y-4">
-              {[dict.quickstart.developer.step1, dict.quickstart.developer.step2, dict.quickstart.developer.step3].map((step, index) => (
+            <ol className="space-y-4 mb-8">
+              {[dict.platforms.claudeCode.step1, dict.platforms.claudeCode.step2, dict.platforms.claudeCode.step3].map((step, index) => (
                 <li key={index} className="flex items-start gap-4">
-                  <span className="flex-shrink-0 w-8 h-8 bg-fugle-500 text-black rounded-full flex items-center justify-center font-bold text-sm">
+                  <span className="flex-shrink-0 w-8 h-8 bg-[#D97757] text-white rounded-full flex items-center justify-center font-bold text-sm">
                     {index + 1}
                   </span>
                   <span className="text-gray-300 pt-1">{step}</span>
@@ -91,19 +96,49 @@ export default function Platforms({ dict }: PlatformsProps) {
               ))}
             </ol>
 
-            {/* Code snippet */}
-            <div className="self-end bg-gray-950 rounded-xl p-4 font-mono text-sm overflow-x-auto">
-              <div className="text-gray-500"># Add to your MCP config</div>
-              <div className="text-gray-300">
-                <span className="text-purple-400">&quot;fugle&quot;</span>: {'{'}
+            <div className="mt-auto space-y-4">
+              {/* CLI command snippet */}
+              <div className="bg-gray-950 rounded-xl p-4 font-mono text-sm overflow-x-auto">
+                <div className="text-gray-300">
+                  <span className="text-green-400">$</span> claude mcp add --transport http fugle https://www.fugle.tw/api/v2/mcp
+                </div>
               </div>
-              <div className="text-gray-300 pl-4">
-                <span className="text-purple-400">&quot;url&quot;</span>: <span className="text-green-400">&quot;https://www.fugle.tw/api/v2/mcp&quot;</span>
-              </div>
-              <div className="text-gray-300">{'}'}</div>
+
+              <a
+                href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-code"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-full px-6 py-3 border-2 border-[#D97757] hover:bg-[#D97757]/10 text-[#D97757] font-semibold rounded-xl transition-colors"
+              >
+                {dict.platforms.claudeCode.cta}
+                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
             </div>
           </motion.div>
         </div>
+
+        {/* ChatGPT Coming Soon Banner */}
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={isInView ? { y: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-8 bg-gradient-to-br from-gray-800/30 to-gray-900/30 border border-gray-700/50 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-4 opacity-60"
+        >
+          <div className="w-12 h-12 bg-gray-700/30 rounded-xl flex items-center justify-center flex-shrink-0">
+            <ChatGPT width="28" height="28" fill="#6b7280" />
+          </div>
+          <div className="flex-1 text-center sm:text-left">
+            <div className="flex items-center justify-center sm:justify-start gap-3">
+              <h3 className="text-lg font-semibold text-gray-400">{dict.platforms.chatgpt.title}</h3>
+              <span className="px-2 py-0.5 bg-gray-700/50 text-gray-400 text-xs font-medium rounded-full">
+                {dict.platforms.chatgpt.comingSoon}
+              </span>
+            </div>
+            <p className="text-gray-500 text-sm mt-1">{dict.platforms.chatgpt.description}</p>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

@@ -8,8 +8,8 @@
     "titleHighlight": "Taiwan Stock Assistant",
     "subtitle": "With AI assistants you can",
     "subtitleHighlight": "query real-time stock data, manage watchlists, set price alerts, and write research notes",
-    "ctaChatGPT": "Start with ChatGPT",
-    "ctaClaude": "Use with Claude Code"
+    "ctaClaude": "Use with Claude",
+    "ctaChatGPT": "ChatGPT (Coming Soon)"
   },
   "demo": {
     "title": "Conversational queries, intuitive and efficient",
@@ -36,14 +36,28 @@
     }
   },
   "platforms": {
-    "title": "Multi-Platform Support",
+    "title": "Get Started",
+    "claudeAi": {
+      "title": "Claude.ai",
+      "description": "Use directly on the web, the easiest way to start",
+      "step1": "Open Claude.ai, go to Settings → Connectors",
+      "step2": "Click Add custom connector, enter the Fugle MCP Server URL",
+      "step3": "Complete OAuth login, start chatting",
+      "note": "Requires Pro plan or above",
+      "cta": "Open Claude.ai"
+    },
+    "claudeCode": {
+      "title": "Claude Code",
+      "description": "Use in the terminal, the efficient choice for developers",
+      "step1": "Install Claude Code",
+      "step2": "Run the command to add Fugle MCP Server",
+      "step3": "Enter /mcp to complete OAuth, start chatting",
+      "cta": "View Claude Code Docs"
+    },
     "chatgpt": {
       "title": "ChatGPT",
-      "description": "Enable directly through ChatGPT Apps for the most intuitive conversational experience"
-    },
-    "claude": {
-      "title": "Claude Code & MCP",
-      "description": "Developer-friendly, supports MCP protocol, integrates with various AI tools"
+      "description": "ChatGPT integration coming soon, stay tuned",
+      "comingSoon": "Coming Soon"
     }
   },
   "quickstart": {
