@@ -12,9 +12,9 @@
     "ctaChatGPT": "ChatGPT (Coming Soon)"
   },
   "demo": {
-    "title": "Conversational queries, intuitive and efficient",
-    "userMessage": "How has TSMC performed in the last 3 days?",
-    "aiResponse": "Based on the latest data, TSMC (2330) performance over the past 3 days:\n• 2/5: Closed at NT$1,765 (-1.12%)\n• 2/4: Closed at NT$1,785 (-0.83%)\n• 2/3: Closed at NT$1,800 (+1.98%)"
+    "title": "From analysis to action, in one message",
+    "userMessage": "Analyze TSMC's latest earnings. Add to watchlist if worth tracking, and alert me at a fair price",
+    "aiResponse": "TSMC (2330) Analysis:\n\n2025 Q3 EPS NT$17.44 (YoY +39%), trailing 4Q total NT$61.2. Current price NT$1,915, P/E ~31x. Jan revenue NT$401.3B (YoY +36.8%), growth remains strong but decelerating.\n\n✅ Added to \"Close Watch\" watchlist\n✅ Price alert set: notify at NT$1,800\n✅ Note saved: 2025Q3 EPS 17.44, P/E 31x, watch for growth slowdown"
   },
   "features": {
     "title": "Powerful Features",
