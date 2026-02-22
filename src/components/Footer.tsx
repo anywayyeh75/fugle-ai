@@ -69,13 +69,19 @@ export default function Footer() {
               {FUGLE_LINKS.map((link) => (
                 <ul key={link.id}>
                   <p className="text-sm text-[#ccc] mb-3">{link.title}</p>
-                  {link.links.map((item) => (
+                  {link.links.map((item) =>
                     <li key={item.id} className="py-0.5">
-                      <Link href={item.href} rel="noopener noreferrer" {...(item.href.startsWith('mailto:') ? {} : { target: '_blank' })} className="hover:text-fugle-500 transition-all duration-100 ease-out">
-                        {item.title}
-                      </Link>
+                      {item.href.startsWith('mailto:') ? (
+                        <a href={item.href} className="hover:text-fugle-500 transition-all duration-100 ease-out">
+                          {item.title}
+                        </a>
+                      ) : (
+                        <Link href={item.href} rel="noopener noreferrer" target="_blank" className="hover:text-fugle-500 transition-all duration-100 ease-out">
+                          {item.title}
+                        </Link>
+                      )}
                     </li>
-                  ))}
+                  )}
                 </ul>
               ))}
             </div>
