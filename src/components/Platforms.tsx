@@ -77,7 +77,7 @@ export default function Platforms({ dict }: PlatformsProps) {
               <div className="text-green-400">https://www.fugle.tw/api/v2/mcp</div>
             </div>
 
-            <div className="mt-auto">
+            <div className="mt-auto space-y-3">
               <a
                 href="https://claude.ai/settings/connectors?modal=add-custom-connector"
                 target="_blank"
@@ -85,6 +85,18 @@ export default function Platforms({ dict }: PlatformsProps) {
                 className="inline-flex items-center justify-center w-full px-6 py-3 bg-[#D97757] hover:bg-[#c56847] text-white font-semibold rounded-xl transition-colors"
               >
                 {dict.platforms.claudeAi.cta}
+                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+              <a
+                href="https://claude.ai/new?q=%E8%AB%8B%E5%B9%AB%E6%88%91%E5%AE%89%E8%A3%9D%20Fugle%20AI%20%E5%8A%A9%E7%90%86%EF%BC%8C%E5%AE%89%E8%A3%9D%E8%AA%AA%E6%98%8E%E5%9C%A8%20https%3A%2F%2Ffugle.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-full px-6 py-3 border-2 border-[#D97757] text-[#D97757] hover:bg-[#D97757]/10 font-semibold rounded-xl transition-colors"
+              >
+                <Claude width="16" height="16" fill="#D97757" className="mr-2" />
+                {dict.platforms.claudeAi.ctaAiAssist}
                 <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>

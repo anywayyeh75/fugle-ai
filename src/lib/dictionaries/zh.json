@@ -55,7 +55,8 @@
       "step1": "點擊下方按鈕，或開啟 Claude.ai 前往 Settings → Connectors",
       "step2": "輸入名稱 fugle，並貼上 Fugle MCP Server 網址",
       "step3": "在 Connector 列表找到 fugle，點擊 Connect 完成 OAuth 授權，開始對話",
-      "cta": "新增 Connector"
+      "cta": "新增 Connector",
+      "ctaAiAssist": "讓 Claude 幫你安裝"
     },
     "claudeCode": {
       "title": "Claude Code",

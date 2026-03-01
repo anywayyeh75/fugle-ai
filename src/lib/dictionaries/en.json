@@ -55,7 +55,8 @@
       "step1": "Click the button below, or go to Claude.ai Settings → Connectors",
       "step2": "Enter the name fugle and paste the Fugle MCP Server URL",
       "step3": "Find fugle in the Connector list, click Connect to complete OAuth, and start chatting",
-      "cta": "Add Connector"
+      "cta": "Add Connector",
+      "ctaAiAssist": "Let Claude help you install"
     },
     "claudeCode": {
       "title": "Claude Code",
