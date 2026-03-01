@@ -52,9 +52,9 @@
     "claudeAi": {
       "title": "Claude.ai",
       "description": "在網頁上直接使用，最簡單的開始方式",
-      "step1": "開啟 Claude.ai，前往 Settings → Connectors",
-      "step2": "點擊 Add custom connector，輸入 Fugle MCP Server 網址",
-      "step3": "完成 OAuth 登入授權，開始對話",
+      "step1": "點擊下方按鈕，或開啟 Claude.ai 前往 Settings → Connectors",
+      "step2": "輸入名稱 fugle，並貼上 Fugle MCP Server 網址",
+      "step3": "在 Connector 列表找到 fugle，點擊 Connect 完成 OAuth 授權，開始對話",
       "cta": "新增 Connector"
     },
     "claudeCode": {
