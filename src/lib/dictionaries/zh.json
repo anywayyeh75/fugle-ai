@@ -63,7 +63,7 @@
       "description": "在終端機中使用，開發者的高效選擇",
       "step1": "安裝 Claude Code",
       "step2": "執行指令加載 Fugle MCP Server",
-      "step3": "輸入 /mcp 完成 OAuth 認證，開始對話",
+      "step3": "輸入 /mcp，在 User MCPs 選擇 fugle 完成 OAuth 認證，開始對話",
       "cta": "複製指令"
     },
     "chatgpt": {
