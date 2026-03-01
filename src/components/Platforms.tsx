@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { ChatGPT, Claude, MCP } from '@/components/icons'
 import type { Dictionary } from '@/lib/i18n'
 
@@ -12,6 +12,27 @@ interface PlatformsProps {
 export default function Platforms({ dict }: PlatformsProps) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const [copied, setCopied] = useState(false)
+
+  const cliCommand = 'claude mcp add --transport http fugle https://www.fugle.tw/api/v2/mcp'
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(cliCommand)
+    } catch {
+      // Fallback for older browsers or restricted contexts
+      const textarea = document.createElement('textarea')
+      textarea.value = cliCommand
+      textarea.style.position = 'fixed'
+      textarea.style.opacity = '0'
+      document.body.appendChild(textarea)
+      textarea.select()
+      document.execCommand('copy')
+      document.body.removeChild(textarea)
+    }
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
 
   return (
     <section id="platforms" className="py-24 bg-gradient-to-b from-black to-gray-900" ref={ref}>
@@ -100,21 +121,25 @@ export default function Platforms({ dict }: PlatformsProps) {
               {/* CLI command snippet */}
               <div className="bg-gray-950 rounded-xl p-4 font-mono text-sm overflow-x-auto">
                 <div className="text-gray-300">
-                  <span className="text-green-400">$</span> claude mcp add --transport http fugle https://www.fugle.tw/api/v2/mcp
+                  <span className="text-green-400">$</span> {cliCommand}
                 </div>
               </div>
 
-              <a
-                href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-code"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={handleCopy}
                 className="inline-flex items-center justify-center w-full px-6 py-3 border-2 border-[#D97757] hover:bg-[#D97757]/10 text-[#D97757] font-semibold rounded-xl transition-colors"
               >
-                {dict.platforms.claudeCode.cta}
-                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
+                {copied ? '已複製！' : dict.platforms.claudeCode.cta}
+                {copied ? (
+                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                ) : (
+                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                  </svg>
+                )}
+              </button>
             </div>
           </motion.div>
         </div>

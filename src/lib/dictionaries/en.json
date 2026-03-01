@@ -64,7 +64,7 @@
       "step1": "Install Claude Code",
       "step2": "Run the command to add Fugle MCP Server",
       "step3": "Enter /mcp to complete OAuth, start chatting",
-      "cta": "View Claude Code Docs"
+      "cta": "Copy Command"
     },
     "chatgpt": {
       "title": "ChatGPT",
