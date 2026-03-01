@@ -55,7 +55,6 @@
       "step1": "Open Claude.ai, go to Settings → Connectors",
       "step2": "Click Add custom connector, enter the Fugle MCP Server URL",
       "step3": "Complete OAuth login, start chatting",
-      "note": "Requires Pro plan or above",
       "cta": "Add Connector"
     },
     "claudeCode": {
@@ -66,6 +65,7 @@
       "step3": "Enter /mcp to complete OAuth, start chatting",
       "cta": "Copy Command"
     },
+    "note": "Both services require Claude Pro plan or above. Connectors added on Claude.ai are also available in Claude Code",
     "chatgpt": {
       "title": "ChatGPT",
       "description": "ChatGPT integration coming soon, stay tuned",

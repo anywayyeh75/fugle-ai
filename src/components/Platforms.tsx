@@ -89,7 +89,6 @@ export default function Platforms({ dict }: PlatformsProps) {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </a>
-              <p className="text-gray-500 text-sm mt-3 text-center">* {dict.platforms.claudeAi.note}</p>
             </div>
           </motion.div>
 
@@ -143,6 +142,16 @@ export default function Platforms({ dict }: PlatformsProps) {
             </div>
           </motion.div>
         </div>
+
+        {/* Shared note */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5, delay: 0.35 }}
+          className="text-gray-500 text-sm text-center mt-4"
+        >
+          * {dict.platforms.note}
+        </motion.p>
 
         {/* ChatGPT Coming Soon Banner */}
         <motion.div

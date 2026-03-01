@@ -55,7 +55,6 @@
       "step1": "開啟 Claude.ai，前往 Settings → Connectors",
       "step2": "點擊 Add custom connector，輸入 Fugle MCP Server 網址",
       "step3": "完成 OAuth 登入授權，開始對話",
-      "note": "需要 Pro 以上方案",
       "cta": "新增 Connector"
     },
     "claudeCode": {
@@ -66,6 +65,7 @@
       "step3": "輸入 /mcp，在 User MCPs 選擇 fugle 完成 OAuth 認證，開始對話",
       "cta": "複製指令"
     },
+    "note": "以上服務皆需要 Claude Pro 以上方案。在 Claude.ai 新增的 Connector，也可在 Claude Code 中使用",
     "chatgpt": {
       "title": "ChatGPT",
       "description": "ChatGPT 整合即將上線，敬請期待",
