@@ -14,7 +14,7 @@ export default function Platforms({ dict }: PlatformsProps) {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
   const [copied, setCopied] = useState(false)
 
-  const cliCommand = 'claude mcp add --transport http fugle https://www.fugle.tw/api/v2/mcp'
+  const cliCommand = 'claude mcp add --transport http -s user fugle https://www.fugle.tw/api/v2/mcp'
 
   const handleCopy = async () => {
     try {
