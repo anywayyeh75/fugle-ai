@@ -60,9 +60,9 @@
     "claudeCode": {
       "title": "Claude Code",
       "description": "Use in the terminal, the efficient choice for developers",
-      "step1": "Install Claude Code",
-      "step2": "Run the command to add Fugle MCP Server",
-      "step3": "Enter /mcp to complete OAuth, start chatting",
+      "step1": "Copy the command below and run it in your terminal",
+      "step2": "Restart Claude Code to load the new MCP Server",
+      "step3": "Enter /mcp, select fugle to complete OAuth, and start chatting",
       "cta": "Copy Command"
     },
     "note": "Both services require Claude Pro plan or above. Connectors added on Claude.ai are also available in Claude Code",
