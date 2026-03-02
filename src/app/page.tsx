@@ -10,7 +10,7 @@ import Footer from '@/components/Footer'
 import { getDictionary, type Locale } from '@/lib/i18n'
 
 export default function Home() {
-  const [locale, setLocale] = useState<Locale>('zh')
+  const [locale, _setLocale] = useState<Locale>('zh')
   const dict = getDictionary(locale)
 
   return (

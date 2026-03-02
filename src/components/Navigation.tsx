@@ -8,7 +8,7 @@ interface NavigationProps {
   dict: Dictionary
 }
 
-export default function Navigation({ dict }: NavigationProps) {
+export default function Navigation({ dict: _dict }: NavigationProps) {
   return (
     <motion.nav
       initial={{ y: -20, opacity: 0 }}

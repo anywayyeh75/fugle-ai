@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { ChatGPT, Claude, MCP } from '@/components/icons'
 import type { Dictionary } from '@/lib/i18n'
+import { MCP_SERVER_URL, CLAUDE_CLI_COMMAND } from '@/lib/constants'
 
 interface PlatformsProps {
   dict: Dictionary
@@ -14,7 +15,7 @@ export default function Platforms({ dict }: PlatformsProps) {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
   const [copied, setCopied] = useState(false)
 
-  const cliCommand = 'claude mcp add --transport http -s user fugle https://www.fugle.tw/api/v2/mcp'
+  const cliCommand = CLAUDE_CLI_COMMAND
 
   const handleCopy = async () => {
     try {
@@ -58,7 +59,7 @@ export default function Platforms({ dict }: PlatformsProps) {
               <Claude width="40" height="40" fill="#D97757" />
             </div>
             <h3 className="text-2xl font-bold text-white mb-2">{dict.platforms.claudeAi.title}</h3>
-            <p className="text-gray-400 leading-relaxed mb-6">{dict.platforms.claudeAi.description}</p>
+            <p className="text-gray-300 leading-relaxed mb-6">{dict.platforms.claudeAi.description}</p>
 
             <ol className="space-y-4 mb-6">
               {[dict.platforms.claudeAi.step1, dict.platforms.claudeAi.step2, dict.platforms.claudeAi.step3].map((step, index) => (
@@ -74,7 +75,7 @@ export default function Platforms({ dict }: PlatformsProps) {
             {/* MCP Server URL */}
             <div className="bg-gray-950 rounded-xl p-4 font-mono text-sm overflow-x-auto mb-8">
               <div className="text-gray-500 text-xs mb-1">MCP Server URL</div>
-              <div className="text-green-400">https://www.fugle.tw/api/v2/mcp</div>
+              <div className="text-green-400">{MCP_SERVER_URL}</div>
             </div>
 
             <div className="mt-auto space-y-3">
@@ -115,7 +116,7 @@ export default function Platforms({ dict }: PlatformsProps) {
               <MCP width="40" height="40" stroke="#D97757" />
             </div>
             <h3 className="text-2xl font-bold text-white mb-2">{dict.platforms.claudeCode.title}</h3>
-            <p className="text-gray-400 leading-relaxed mb-6">{dict.platforms.claudeCode.description}</p>
+            <p className="text-gray-300 leading-relaxed mb-6">{dict.platforms.claudeCode.description}</p>
 
             <ol className="space-y-4 mb-8">
               {[dict.platforms.claudeCode.step1, dict.platforms.claudeCode.step2, dict.platforms.claudeCode.step3].map((step, index) => (

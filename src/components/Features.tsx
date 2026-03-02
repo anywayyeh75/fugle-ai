@@ -76,7 +76,7 @@ export default function Features({ dict }: FeaturesProps) {
                 {feature.icon}
               </div>
               <h3 className="text-xl font-semibold text-white mb-2 text-center">{feature.title}</h3>
-              <p className="text-gray-400 leading-relaxed text-center">{feature.description}</p>
+              <p className="text-gray-300 leading-relaxed text-center">{feature.description}</p>
             </motion.div>
           ))}
         </div>

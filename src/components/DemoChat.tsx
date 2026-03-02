@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useInView, AnimatePresence } from 'framer-motion'
+import { motion, useInView, AnimatePresence, type PanInfo } from 'framer-motion'
 import { useRef, useState, useEffect, useCallback } from 'react'
 import type { Dictionary } from '@/lib/i18n'
 
@@ -42,37 +42,59 @@ function TypeWriter({ text, delay = 0, speed = 30 }: { text: string; delay?: num
   )
 }
 
-const INTERVAL_MS = 8000
+function getIntervalMs(text: string) {
+  return text.length * 20 + 400 + 3000
+}
 
 export default function DemoChat({ dict }: DemoChatProps) {
   const containerRef = useRef(null)
   const isInView = useInView(containerRef, { once: true, margin: '-100px' })
   const [activeIndex, setActiveIndex] = useState(0)
   const [progressKey, setProgressKey] = useState(0)
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const [isPaused, setIsPaused] = useState(false)
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const conversations = dict.demo.conversations
 
-  const startAutoPlay = useCallback(() => {
-    if (intervalRef.current) clearInterval(intervalRef.current)
-    intervalRef.current = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % conversations.length)
-      setProgressKey((k) => k + 1)
-    }, INTERVAL_MS)
+  const currentInterval = getIntervalMs(conversations[activeIndex].aiResponse)
+
+  const advance = useCallback(() => {
+    setActiveIndex((prev) => (prev + 1) % conversations.length)
+    setProgressKey((k) => k + 1)
   }, [conversations.length])
 
+  // Schedule next auto-advance via setTimeout (each slide has its own duration)
   useEffect(() => {
-    if (!isInView) return
-    startAutoPlay()
+    if (!isInView || isPaused) return
+
+    timerRef.current = setTimeout(advance, currentInterval)
     return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current)
+      if (timerRef.current) clearTimeout(timerRef.current)
     }
-  }, [isInView, startAutoPlay])
+  }, [isInView, isPaused, activeIndex, progressKey, currentInterval, advance])
 
   const handleBarClick = (index: number) => {
     setActiveIndex(index)
     setProgressKey((k) => k + 1)
-    startAutoPlay()
+  }
+
+  const handlePause = () => {
+    setIsPaused(true)
+    if (timerRef.current) clearTimeout(timerRef.current)
+  }
+
+  const handleResume = () => {
+    setIsPaused(false)
+  }
+
+  const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    if (info.offset.x < -50) {
+      setActiveIndex((prev) => (prev + 1) % conversations.length)
+      setProgressKey((k) => k + 1)
+    } else if (info.offset.x > 50) {
+      setActiveIndex((prev) => (prev - 1 + conversations.length) % conversations.length)
+      setProgressKey((k) => k + 1)
+    }
   }
 
   const current = conversations[activeIndex]
@@ -94,33 +116,41 @@ export default function DemoChat({ dict }: DemoChatProps) {
           animate={isInView ? { y: 0, opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="bg-gray-800/50 backdrop-blur border border-gray-700 rounded-2xl p-6 sm:p-8 card-glow"
+          onMouseEnter={handlePause}
+          onMouseLeave={handleResume}
+          onTouchStart={handlePause}
+          onTouchEnd={handleResume}
         >
           {/* IG Stories-style progress bars */}
           <div className="flex gap-1.5 mb-5">
-            {conversations.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => handleBarClick(index)}
-                className="relative h-[3px] flex-1 rounded-full overflow-hidden bg-white/10 cursor-pointer transition-[background-color] duration-200 hover:bg-white/20"
-                aria-label={`Go to conversation ${index + 1}`}
-              >
-                {/* Filled portion */}
-                <span
-                  key={`${index}-${progressKey}`}
-                  className="absolute inset-0 rounded-full origin-left"
-                  style={
-                    index < activeIndex
-                      ? { backgroundColor: 'rgba(255,255,255,0.45)', transform: 'scaleX(1)' }
-                      : index === activeIndex
-                        ? {
-                            backgroundColor: 'rgba(255,255,255,0.45)',
-                            animation: `progress-fill ${INTERVAL_MS}ms linear forwards`,
-                          }
-                        : { backgroundColor: 'rgba(255,255,255,0.45)', transform: 'scaleX(0)' }
-                  }
-                />
-              </button>
-            ))}
+            {conversations.map((conv, index) => {
+              const barDuration = getIntervalMs(conv.aiResponse)
+              return (
+                <button
+                  key={index}
+                  onClick={() => handleBarClick(index)}
+                  className="relative h-[3px] flex-1 rounded-full overflow-hidden bg-white/10 cursor-pointer transition-[background-color] duration-200 hover:bg-white/20"
+                  aria-label={`Go to conversation ${index + 1}`}
+                >
+                  {/* Filled portion */}
+                  <span
+                    key={`${index}-${progressKey}`}
+                    className="absolute inset-0 rounded-full origin-left"
+                    style={
+                      index < activeIndex
+                        ? { backgroundColor: 'rgba(255,255,255,0.45)', transform: 'scaleX(1)' }
+                        : index === activeIndex
+                          ? {
+                              backgroundColor: 'rgba(255,255,255,0.45)',
+                              animation: `progress-fill ${barDuration}ms linear forwards`,
+                              animationPlayState: isPaused ? 'paused' : 'running',
+                            }
+                          : { backgroundColor: 'rgba(255,255,255,0.45)', transform: 'scaleX(0)' }
+                    }
+                  />
+                </button>
+              )
+            })}
           </div>
 
           {/* Chat window header */}
@@ -139,6 +169,10 @@ export default function DemoChat({ dict }: DemoChatProps) {
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.35 }}
               className="space-y-6"
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
+              onDragEnd={handleDragEnd}
             >
               {/* User message */}
               <div className="flex justify-end">

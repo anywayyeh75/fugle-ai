@@ -72,20 +72,5 @@
       "description": "ChatGPT integration coming soon, stay tuned",
       "comingSoon": "Coming Soon"
     }
-  },
-  "quickstart": {
-    "title": "Quick Start",
-    "chatgpt": {
-      "title": "ChatGPT Users",
-      "step1": "Open ChatGPT",
-      "step2": "Search for \"Fugle\" and enable the App",
-      "step3": "Start querying Taiwan stock data"
-    },
-    "developer": {
-      "title": "Developers",
-      "step1": "Install Claude Code or an MCP-compatible client",
-      "step2": "Connect to Fugle Remote MCP Server",
-      "step3": "Start using Taiwan stock data tools"
-    }
   }
 }

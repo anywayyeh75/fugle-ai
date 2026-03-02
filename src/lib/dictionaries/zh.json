@@ -72,20 +72,5 @@
       "description": "ChatGPT 整合即將上線，敬請期待",
       "comingSoon": "即將推出"
     }
-  },
-  "quickstart": {
-    "title": "快速開始",
-    "chatgpt": {
-      "title": "ChatGPT 用戶",
-      "step1": "開啟 ChatGPT 的「應用程式」",
-      "step2": "搜尋「Fugle」並點擊「連線」",
-      "step3": "開始對話，進行高效的投資研究"
-    },
-    "developer": {
-      "title": "開發者",
-      "step1": "安裝 Claude Code 或使用支援 MCP 的 AI 工具",
-      "step2": "連接 Fugle Remote MCP Server",
-      "step3": "開始對話，進行高效的投資研究"
-    }
   }
 }

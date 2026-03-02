@@ -55,7 +55,7 @@ const SOCIAL_LINKS = [
 export default function Footer() {
   return (
     <footer className="w-full">
-      <nav className="text-white bg-[#131313] px-4 py-10 flex flex-col items-center justify-center">
+      <nav className="text-white bg-gray-900 px-4 py-10 flex flex-col items-center justify-center">
         <div className="w-full flex flex-col lg:flex-row sm:max-w-[800px] lg:max-w-[1200px] lg:justify-center">
           <div className="flex flex-col items-center gap-3 mb-10">
             <div className="flex items-center gap-[6px]">
@@ -68,7 +68,7 @@ export default function Footer() {
             <div className="w-full flex justify-between px-3 mb-6 sm:contents lg:flex lg:gap-[60px] lg:justify-center">
               {FUGLE_LINKS.map((link) => (
                 <ul key={link.id}>
-                  <p className="text-sm text-[#ccc] mb-3">{link.title}</p>
+                  <p className="text-sm text-gray-400 mb-3">{link.title}</p>
                   {link.links.map((item) =>
                     <li key={item.id} className="py-0.5">
                       {item.href.startsWith('mailto:') ? (
@@ -87,7 +87,7 @@ export default function Footer() {
             </div>
             <div className="sm:contents lg:flex lg:gap-2">
               <div className="flex flex-col items-start gap-2">
-                <span className="text-sm text-[#ccc]">下載 App</span>
+                <span className="text-sm text-gray-400">下載 App</span>
                 <div className="flex gap-2">
                   <div className="flex items-start gap-2 sm:flex-col">
                     <Link href="https://apps.apple.com/tw/app/id1542310263" target="_blank" rel="noopener noreferrer" aria-label="下載 iOS App">
@@ -110,7 +110,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <hr className="my-10 w-full border-[#656565] sm:max-w-[800px] lg:max-w-[1200px]" />
+        <hr className="my-10 w-full border-gray-700 sm:max-w-[800px] lg:max-w-[1200px]" />
         <div className="w-full flex flex-col items-center gap-4 sm:max-w-[800px] lg:max-w-[1200px] lg:flex-row lg:justify-center">
           <div className="flex items-center gap-3">
             {SOCIAL_LINKS.map((link) => (
@@ -120,13 +120,13 @@ export default function Footer() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group w-9 h-9 rounded-full border border-[#DFDFDF] bg-white flex items-center justify-center hover:bg-[#F5F5F5] transition-all duration-100 ease-out"
+                className="group w-9 h-9 rounded-full border border-gray-600 bg-gray-800 flex items-center justify-center hover:border-fugle-500 transition-all duration-100 ease-out"
               >
                 <link.icon
                   width="24"
                   height="24"
-                  fill="#545454"
-                  className="[&_path:not([fill='white']):not([fill='#fff'])]:group-hover:fill-[#323232] transition-all duration-100 ease-out"
+                  fill="#9ca3af"
+                  className="[&_path:not([fill='white']):not([fill='#fff'])]:group-hover:fill-white transition-all duration-100 ease-out"
                 />
               </Link>
             ))}
@@ -148,7 +148,7 @@ export default function Footer() {
           </p>
         </div>
       </nav>
-      <div className="bg-[#292929] p-4 flex flex-col items-center justify-center text-sm text-[#ccc] gap-1 sm:flex-row sm:gap-4">
+      <div className="bg-gray-800 p-4 flex flex-col items-center justify-center text-sm text-gray-400 gap-1 sm:flex-row sm:gap-4">
         <span>Copyright © 群馥科技</span>
         <span>公司地址：10001 台北市中正區武昌街一段 77 號 5 樓</span>
       </div>
