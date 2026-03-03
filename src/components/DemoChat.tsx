@@ -146,44 +146,76 @@ export default function DemoChat({ dict }: DemoChatProps) {
             <div className="w-3 h-3 rounded-full bg-green-500" />
           </div>
 
-          {/* Chat messages */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeIndex}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.35 }}
-              className="space-y-6"
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.2}
-              onDragEnd={handleDragEnd}
-            >
-              {/* User message */}
-              <div className="flex justify-end">
-                <div className="bg-fugle-500 text-black px-4 py-3 rounded-2xl rounded-br-md max-w-[80%]">
-                  <p className="font-medium">{current.userMessage}</p>
-                </div>
-              </div>
-
-              {/* AI response */}
-              <div className="flex justify-start">
-                <div className="bg-gray-700 text-white px-4 py-3 rounded-2xl rounded-bl-md max-w-[80%]">
-                  <div className="whitespace-pre-line">
-                    {isInView && (
-                      <TypeWriter
-                        key={activeIndex}
-                        text={current.aiResponse}
-                        delay={400}
-                        speed={20}
-                      />
-                    )}
+          {/* Chat messages — height-stable grid container */}
+          <div className="grid">
+            {/* Invisible sizers: all conversations stacked in same cell → takes max height */}
+            {conversations.map((conv, i) => (
+              <div
+                key={`sizer-${i}`}
+                className="invisible pointer-events-none [grid-row:1/-1] [grid-column:1/-1]"
+                aria-hidden="true"
+              >
+                <div className="space-y-6">
+                  <div className="flex justify-end">
+                    <div className="px-4 py-3 rounded-2xl rounded-br-md max-w-[80%]">
+                      <p className="font-medium">{conv.userMessage}</p>
+                    </div>
+                  </div>
+                  <div className="flex justify-start">
+                    <div className="px-4 py-3 rounded-2xl rounded-bl-md max-w-[80%]">
+                      <div className="whitespace-pre-line">{conv.aiResponse}</div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </motion.div>
-          </AnimatePresence>
+            ))}
+
+            {/* Visible layer */}
+            <div className="[grid-row:1/-1] [grid-column:1/-1]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeIndex}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.35 }}
+                  className="space-y-6"
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.2}
+                  onDragEnd={handleDragEnd}
+                >
+                  {/* User message */}
+                  <div className="flex justify-end">
+                    <div className="bg-fugle-500 text-black px-4 py-3 rounded-2xl rounded-br-md max-w-[80%]">
+                      <p className="font-medium">{current.userMessage}</p>
+                    </div>
+                  </div>
+
+                  {/* AI response — inner grid for typing stability */}
+                  <div className="flex justify-start">
+                    <div className="bg-gray-700 text-white px-4 py-3 rounded-2xl rounded-bl-md max-w-[80%]">
+                      <div className="whitespace-pre-line grid">
+                        <span className="invisible [grid-row:1/-1] [grid-column:1/-1]" aria-hidden="true">
+                          {current.aiResponse}
+                        </span>
+                        <span className="[grid-row:1/-1] [grid-column:1/-1]">
+                          {isInView && (
+                            <TypeWriter
+                              key={activeIndex}
+                              text={current.aiResponse}
+                              delay={400}
+                              speed={20}
+                            />
+                          )}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
