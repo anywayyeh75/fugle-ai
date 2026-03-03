@@ -43,6 +43,15 @@ body {
   to { transform: scaleX(1); }
 }
 
+/* Thinking dots pulse for DemoChat */
+@keyframes thinking-dot {
+  0%, 100% { opacity: 0.3; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1); }
+}
+.thinking-dot {
+  animation: thinking-dot 1.4s ease-in-out infinite;
+}
+
 /* Typing cursor animation */
 @keyframes blink {
   0%, 50% { opacity: 1; }

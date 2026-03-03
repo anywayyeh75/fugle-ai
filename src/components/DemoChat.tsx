@@ -8,6 +8,22 @@ interface DemoChatProps {
   dict: Dictionary
 }
 
+function ThinkingDots({ duration }: { duration: number }) {
+  const [visible, setVisible] = useState(true)
+  useEffect(() => {
+    const timer = setTimeout(() => setVisible(false), duration)
+    return () => clearTimeout(timer)
+  }, [duration])
+  if (!visible) return null
+  return (
+    <span className="inline-flex gap-1.5 items-center py-1">
+      <span className="w-1.5 h-1.5 bg-gray-400 rounded-full thinking-dot" />
+      <span className="w-1.5 h-1.5 bg-gray-400 rounded-full thinking-dot [animation-delay:200ms]" />
+      <span className="w-1.5 h-1.5 bg-gray-400 rounded-full thinking-dot [animation-delay:400ms]" />
+    </span>
+  )
+}
+
 function TypeWriter({ text, delay = 0, speed = 30 }: { text: string; delay?: number; speed?: number }) {
   const [displayText, setDisplayText] = useState('')
   const [isTyping, setIsTyping] = useState(false)
@@ -42,8 +58,13 @@ function TypeWriter({ text, delay = 0, speed = 30 }: { text: string; delay?: num
   )
 }
 
+const AI_APPEAR_DELAY = 500   // ms — user message 閱讀時間
+const THINKING_MS = 1200      // ms — 思考中圓點顯示時長
+const TYPING_SPEED = 20       // ms/字元
+const POST_TYPING_PAUSE = 3000 // ms — 打完後停留
+
 function getIntervalMs(text: string) {
-  return text.length * 20 + 400 + 3000
+  return AI_APPEAR_DELAY + THINKING_MS + text.length * TYPING_SPEED + POST_TYPING_PAUSE
 }
 
 export default function DemoChat({ dict }: DemoChatProps) {
@@ -53,9 +74,18 @@ export default function DemoChat({ dict }: DemoChatProps) {
   const [progressKey, setProgressKey] = useState(0)
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
+  const [showAI, setShowAI] = useState(false)
+
   const conversations = dict.demo.conversations
 
   const currentInterval = getIntervalMs(conversations[activeIndex].aiResponse)
+
+  // Delay AI bubble appearance after slide change
+  useEffect(() => {
+    setShowAI(false)
+    const timer = setTimeout(() => setShowAI(true), AI_APPEAR_DELAY)
+    return () => clearTimeout(timer)
+  }, [activeIndex, progressKey])
 
   const advance = useCallback(() => {
     setActiveIndex((prev) => (prev + 1) % conversations.length)
@@ -175,43 +205,58 @@ export default function DemoChat({ dict }: DemoChatProps) {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeIndex}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.35 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.25 }}
                   className="space-y-6"
                   drag="x"
                   dragConstraints={{ left: 0, right: 0 }}
                   dragElastic={0.2}
                   onDragEnd={handleDragEnd}
                 >
-                  {/* User message */}
-                  <div className="flex justify-end">
-                    <div className="bg-fugle-500 text-black px-4 py-3 rounded-2xl rounded-br-md max-w-[80%]">
-                      <p className="font-medium">{current.userMessage}</p>
-                    </div>
-                  </div>
-
-                  {/* AI response — inner grid for typing stability */}
-                  <div className="flex justify-start">
-                    <div className="bg-gray-700 text-white px-4 py-3 rounded-2xl rounded-bl-md max-w-[80%]">
-                      <div className="whitespace-pre-line grid">
-                        <span className="invisible [grid-row:1/-1] [grid-column:1/-1]" aria-hidden="true">
-                          {current.aiResponse}
-                        </span>
-                        <span className="[grid-row:1/-1] [grid-column:1/-1]">
-                          {isInView && (
-                            <TypeWriter
-                              key={activeIndex}
-                              text={current.aiResponse}
-                              delay={400}
-                              speed={20}
-                            />
-                          )}
-                        </span>
+                  {/* User message — pop-in from right */}
+                  <motion.div
+                    initial={{ opacity: 0, x: 20, scale: 0.95 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 25, delay: 0.05 }}
+                  >
+                    <div className="flex justify-end">
+                      <div className="bg-fugle-500 text-black px-4 py-3 rounded-2xl rounded-br-md max-w-[80%]">
+                        <p className="font-medium">{current.userMessage}</p>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
+
+                  {/* AI response — delayed appearance with thinking dots */}
+                  {showAI && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="flex justify-start">
+                        <div className="bg-gray-700 text-white px-4 py-3 rounded-2xl rounded-bl-md max-w-[80%]">
+                          <div className="whitespace-pre-line grid">
+                            <span className="invisible [grid-row:1/-1] [grid-column:1/-1]" aria-hidden="true">
+                              {current.aiResponse}
+                            </span>
+                            <span className="[grid-row:1/-1] [grid-column:1/-1]">
+                              <ThinkingDots key={activeIndex} duration={THINKING_MS} />
+                              {isInView && (
+                                <TypeWriter
+                                  key={activeIndex}
+                                  text={current.aiResponse}
+                                  delay={THINKING_MS}
+                                  speed={TYPING_SPEED}
+                                />
+                              )}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
                 </motion.div>
               </AnimatePresence>
             </div>
