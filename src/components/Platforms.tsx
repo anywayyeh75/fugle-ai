@@ -6,6 +6,14 @@ import { ChatGPT, Claude, MCP } from '@/components/icons'
 import type { Dictionary } from '@/lib/i18n'
 import { MCP_SERVER_URL, CLAUDE_CLI_COMMAND } from '@/lib/constants'
 
+declare global {
+  interface Window {
+    Tally?: {
+      openPopup: (formId: string, options?: Record<string, unknown>) => void
+    }
+  }
+}
+
 interface PlatformsProps {
   dict: Dictionary
 }
@@ -184,16 +192,21 @@ export default function Platforms({ dict }: PlatformsProps) {
               <p className="text-gray-400 text-sm mt-1">{dict.waitlist.description}</p>
             </div>
           </div>
-          <div className="w-full overflow-hidden rounded-xl">
-            <iframe
-              data-tally-src="https://tally.so/embed/442DKX?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-              loading="lazy"
-              width="100%"
-              height="150"
-              frameBorder={0}
-              title="ChatGPT Waitlist"
-            />
-          </div>
+          <button
+            onClick={() => {
+              if (typeof window !== 'undefined' && window.Tally) {
+                window.Tally.openPopup('442DKX', {
+                  layout: 'modal',
+                  overlay: true,
+                  hideTitle: true,
+                  autoClose: 3000,
+                })
+              }
+            }}
+            className="w-full px-6 py-3 bg-fugle-500 hover:bg-fugle-600 text-black font-semibold rounded-xl transition-colors"
+          >
+            {dict.waitlist.cta}
+          </button>
           <p className="text-gray-600 text-xs mt-3 text-center">{dict.waitlist.privacy}</p>
         </motion.div>
       </div>

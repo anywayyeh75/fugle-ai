@@ -79,6 +79,7 @@
   "waitlist": {
     "title": "ChatGPT 版本即將上線",
     "description": "我們正在審核 ChatGPT GPT Store 上架，留下 Email 搶先收到通知",
+    "cta": "搶先登記通知",
     "privacy": "我們不會分享你的 Email，僅用於上線通知"
   }
 }
