@@ -2,13 +2,14 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Fugle.AI｜你的投資研究助理',
-  description: '透過 ChatGPT、Claude 等 AI 助理，即時查詢台股資料、管理追蹤清單、設定到價通知',
+  metadataBase: new URL('https://fugle.ai'),
+  title: 'Fugle.AI｜從分析到行動，Fugle in Claude',
+  description: '「分析台積電，值得追蹤就加到清單，跌到合理價通知我」— 在 Claude 連接富果，AI 幫你一次完成。',
   keywords: ['台股', 'AI 助理', 'ChatGPT', 'Claude', 'MCP', '股票', 'Fugle', '富果', '投資研究'],
   authors: [{ name: 'Fugle' }],
   openGraph: {
-    title: 'Fugle.AI｜你的投資研究助理',
-    description: '透過 ChatGPT、Claude 等 AI 助理，即時查詢台股資料、管理追蹤清單、設定到價通知',
+    title: 'Fugle.AI｜從分析到行動，Fugle in Claude',
+    description: '「分析台積電，值得追蹤就加到清單，跌到合理價通知我」— 在 Claude 連接富果，AI 幫你一次完成。',
     url: 'https://fugle.ai',
     siteName: 'Fugle.AI',
     locale: 'zh_TW',
@@ -17,8 +18,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Fugle.AI｜你的投資研究助理',
-    description: '透過 ChatGPT、Claude 等 AI 助理，即時查詢台股資料、管理追蹤清單、設定到價通知',
+    title: 'Fugle.AI｜從分析到行動，Fugle in Claude',
+    description: '「分析台積電，值得追蹤就加到清單，跌到合理價通知我」— 在 Claude 連接富果，AI 幫你一次完成。',
   },
 }
 
