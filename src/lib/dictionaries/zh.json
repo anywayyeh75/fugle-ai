@@ -6,10 +6,10 @@
     "anchorPlatforms": "開始使用"
   },
   "hero": {
-    "title": "讓你的 Claude",
-    "titleHighlight": "讀懂台股",
-    "subtitle": "即時股價、完整財報、法人籌碼",
-    "subtitleHighlight": "直接在 Claude 裡問，不用再開十個分頁",
+    "title": "從分析到行動",
+    "titleHighlight": "Fugle in Claude",
+    "subtitle": "連接你的富果追蹤，台股研究變成一場對話",
+    "subtitleHighlight": "分析、追蹤、筆記、到價通知，一次完成",
     "ctaClaude": "在 Claude 使用",
     "ctaMicro": "三步驟，一分鐘內完成設定",
     "ctaChatGPTWaitlist": "ChatGPT 版本審核中 · 搶先登記通知"
