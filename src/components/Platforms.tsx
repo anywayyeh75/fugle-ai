@@ -186,7 +186,7 @@ export default function Platforms({ dict }: PlatformsProps) {
           </div>
           <div className="w-full overflow-hidden rounded-xl">
             <iframe
-              data-tally-src="https://tally.so/embed/PLACEHOLDER_FORM_ID?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+              data-tally-src="https://tally.so/embed/442DKX?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
               loading="lazy"
               width="100%"
               height="150"
