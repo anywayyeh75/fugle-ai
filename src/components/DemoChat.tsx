@@ -51,7 +51,6 @@ export default function DemoChat({ dict }: DemoChatProps) {
   const isInView = useInView(containerRef, { once: true, margin: '-100px' })
   const [activeIndex, setActiveIndex] = useState(0)
   const [progressKey, setProgressKey] = useState(0)
-  const [isPaused, setIsPaused] = useState(false)
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const conversations = dict.demo.conversations
@@ -65,26 +64,17 @@ export default function DemoChat({ dict }: DemoChatProps) {
 
   // Schedule next auto-advance via setTimeout (each slide has its own duration)
   useEffect(() => {
-    if (!isInView || isPaused) return
+    if (!isInView) return
 
     timerRef.current = setTimeout(advance, currentInterval)
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current)
     }
-  }, [isInView, isPaused, activeIndex, progressKey, currentInterval, advance])
+  }, [isInView, activeIndex, progressKey, currentInterval, advance])
 
   const handleBarClick = (index: number) => {
     setActiveIndex(index)
     setProgressKey((k) => k + 1)
-  }
-
-  const handlePause = () => {
-    setIsPaused(true)
-    if (timerRef.current) clearTimeout(timerRef.current)
-  }
-
-  const handleResume = () => {
-    setIsPaused(false)
   }
 
   const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
@@ -116,10 +106,6 @@ export default function DemoChat({ dict }: DemoChatProps) {
           animate={isInView ? { y: 0, opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="bg-gray-800/50 backdrop-blur border border-gray-700 rounded-2xl p-6 sm:p-8 card-glow"
-          onMouseEnter={handlePause}
-          onMouseLeave={handleResume}
-          onTouchStart={handlePause}
-          onTouchEnd={handleResume}
         >
           {/* IG Stories-style progress bars */}
           <div className="flex gap-1.5 mb-5">
@@ -143,7 +129,7 @@ export default function DemoChat({ dict }: DemoChatProps) {
                           ? {
                               backgroundColor: 'rgba(255,255,255,0.45)',
                               animation: `progress-fill ${barDuration}ms linear forwards`,
-                              animationPlayState: isPaused ? 'paused' : 'running',
+                              animationPlayState: 'running',
                             }
                           : { backgroundColor: 'rgba(255,255,255,0.45)', transform: 'scaleX(0)' }
                     }
