@@ -52,7 +52,7 @@ export default function Features({ dict }: FeaturesProps) {
   ]
 
   return (
-    <section className="py-24 bg-black" ref={ref}>
+    <section id="features" className="py-24 scroll-mt-20 bg-black" ref={ref}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           initial={{ y: 20, opacity: 0 }}

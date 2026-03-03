@@ -1,15 +1,18 @@
 {
   "nav": {
     "getStarted": "Get Started",
-    "docs": "Docs"
+    "docs": "Docs",
+    "anchorDemo": "Features",
+    "anchorPlatforms": "Get Started"
   },
   "hero": {
-    "title": "Your AI-Powered",
-    "titleHighlight": "Taiwan Stock Assistant",
-    "subtitle": "With AI assistants you can",
-    "subtitleHighlight": "query real-time stock data, manage watchlists, set price alerts, and write research notes",
+    "title": "Let Your Claude",
+    "titleHighlight": "Understand Taiwan Stocks",
+    "subtitle": "Real-time prices, full financials, institutional flows",
+    "subtitleHighlight": "Ask directly in Claude — no more juggling ten browser tabs",
     "ctaClaude": "Use with Claude",
-    "ctaChatGPT": "ChatGPT (Coming Soon)"
+    "ctaMicro": "Three steps, set up in under a minute",
+    "ctaChatGPTWaitlist": "ChatGPT version under review · Get notified"
   },
   "demo": {
     "title": "From analysis to action, in one message",
@@ -31,20 +34,20 @@
   "features": {
     "title": "Powerful Features",
     "stockData": {
-      "title": "Stock Data Query",
-      "description": "55+ data types, from real-time prices to complete financials"
+      "title": "\"What's TSMC's P/E ratio?\"",
+      "description": "One question replaces browsing multiple pages"
     },
     "watchlist": {
-      "title": "Watchlist Management",
-      "description": "Create personalized watchlists to track your interests"
+      "title": "\"Add it to my watchlist\"",
+      "description": "Add or remove mid-conversation, synced across devices"
     },
     "priceAlert": {
-      "title": "Price Alerts",
-      "description": "Set price conditions and receive instant push notifications"
+      "title": "\"Alert me at a fair price\"",
+      "description": "One sentence to set up — no forms to fill"
     },
     "notes": {
-      "title": "Investment Notes",
-      "description": "Record analysis notes for stocks, streamline your research"
+      "title": "\"Record today's observations\"",
+      "description": "AI organizes key points, linked to each stock"
     }
   },
   "platforms": {
@@ -56,7 +59,8 @@
       "step2": "Enter the name fugle and paste the Fugle MCP Server URL",
       "step3": "Find fugle in the Connector list, click Connect to complete OAuth, and start chatting",
       "cta": "Add Connector",
-      "ctaAiAssist": "Let Claude help you install"
+      "ctaAiAssist": "Let Claude help you install",
+      "ctaAiAssistMicro": "Set up directly in Claude — as fast as 30 seconds"
     },
     "claudeCode": {
       "title": "Claude Code",
@@ -69,8 +73,12 @@
     "note": "Both services require Claude Pro plan or above. Connectors added on Claude.ai are also available in Claude Code",
     "chatgpt": {
       "title": "ChatGPT",
-      "description": "ChatGPT integration coming soon, stay tuned",
-      "comingSoon": "Coming Soon"
+      "description": "ChatGPT integration is under review — leave your email to get notified"
     }
+  },
+  "waitlist": {
+    "title": "ChatGPT Version Coming Soon",
+    "description": "We're reviewing our ChatGPT GPT Store listing — leave your email to be the first to know",
+    "privacy": "We won't share your email — only used for launch notification"
   }
 }

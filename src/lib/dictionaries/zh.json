@@ -1,15 +1,18 @@
 {
   "nav": {
     "getStarted": "開始使用",
-    "docs": "文檔"
+    "docs": "文檔",
+    "anchorDemo": "功能介紹",
+    "anchorPlatforms": "開始使用"
   },
   "hero": {
-    "title": "讓 AI 成為你的",
-    "titleHighlight": "高效投資研究助理",
-    "subtitle": "透過 AI 助理你可以",
-    "subtitleHighlight": "即時查詢個股資訊、管理追蹤清單、設定到價通知、撰寫研究筆記",
+    "title": "讓你的 Claude",
+    "titleHighlight": "讀懂台股",
+    "subtitle": "即時股價、完整財報、法人籌碼",
+    "subtitleHighlight": "直接在 Claude 裡問，不用再開十個分頁",
     "ctaClaude": "在 Claude 使用",
-    "ctaChatGPT": "ChatGPT（即將推出）"
+    "ctaMicro": "三步驟，一分鐘內完成設定",
+    "ctaChatGPTWaitlist": "ChatGPT 版本審核中 · 搶先登記通知"
   },
   "demo": {
     "title": "從分析到行動，一句話搞定",
@@ -31,20 +34,20 @@
   "features": {
     "title": "強大功能，一應俱全",
     "stockData": {
-      "title": "個股資訊查詢",
-      "description": "整合多元的個股資訊，快速掌握公司與市場動態"
+      "title": "「台積電本益比多少？」",
+      "description": "一句話取代翻找多個頁面"
     },
     "watchlist": {
-      "title": "追蹤清單管理",
-      "description": "建立個人化追蹤清單，隨時掌握關注標的"
+      "title": "「值得追蹤就加到清單」",
+      "description": "對話中隨時增刪，跨裝置同步"
     },
     "priceAlert": {
-      "title": "到價通知設定",
-      "description": "設定價格條件，觸發即時推播通知"
+      "title": "「跌到合理價通知我」",
+      "description": "說一句自動設定，不用填表格"
     },
     "notes": {
-      "title": "投資筆記記錄",
-      "description": "為個股記錄分析筆記，整合投資研究流程"
+      "title": "「幫我記錄今天的觀察」",
+      "description": "AI 自動整理重點，綁定個股"
     }
   },
   "platforms": {
@@ -56,7 +59,8 @@
       "step2": "輸入名稱 fugle，並貼上 Fugle MCP Server 網址",
       "step3": "在 Connector 列表找到 fugle，點擊 Connect 完成 OAuth 授權，開始對話",
       "cta": "新增 Connector",
-      "ctaAiAssist": "讓 Claude 幫你安裝"
+      "ctaAiAssist": "讓 Claude 幫你安裝",
+      "ctaAiAssistMicro": "直接在 Claude 中完成設定，最快 30 秒"
     },
     "claudeCode": {
       "title": "Claude Code",
@@ -69,8 +73,12 @@
     "note": "以上服務皆需要 Claude Pro 以上方案。在 Claude.ai 新增的 Connector，也可在 Claude Code 中使用",
     "chatgpt": {
       "title": "ChatGPT",
-      "description": "ChatGPT 整合即將上線，敬請期待",
-      "comingSoon": "即將推出"
+      "description": "ChatGPT 整合正在審核中，留下 Email 搶先收到上線通知"
     }
+  },
+  "waitlist": {
+    "title": "ChatGPT 版本即將上線",
+    "description": "我們正在審核 ChatGPT GPT Store 上架，留下 Email 搶先收到通知",
+    "privacy": "我們不會分享你的 Email，僅用於上線通知"
   }
 }

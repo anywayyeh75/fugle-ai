@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
 import { FugleAILogo, InvestmentPlatform } from '@/components/icons'
 import type { Dictionary } from '@/lib/i18n'
 
@@ -8,7 +9,35 @@ interface NavigationProps {
   dict: Dictionary
 }
 
-export default function Navigation({ dict: _dict }: NavigationProps) {
+const SECTIONS = ['demo', 'platforms'] as const
+
+export default function Navigation({ dict }: NavigationProps) {
+  const [activeSection, setActiveSection] = useState<string | null>(null)
+
+  useEffect(() => {
+    const elements = SECTIONS.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[]
+    if (elements.length === 0) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id)
+          }
+        }
+      },
+      { rootMargin: '-20% 0px -60% 0px' }
+    )
+
+    for (const el of elements) observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  const anchors = [
+    { id: 'demo', label: dict.nav.anchorDemo },
+    { id: 'platforms', label: dict.nav.anchorPlatforms },
+  ]
+
   return (
     <motion.nav
       initial={{ y: -20, opacity: 0 }}
@@ -22,14 +51,23 @@ export default function Navigation({ dict: _dict }: NavigationProps) {
           <FugleAILogo height="28" width="133" />
 
           {/* Right side */}
-          <div className="flex items-center gap-4">
-            {/* Language toggle */}
-            {/* <button
-              onClick={() => onLocaleChange(locale === 'zh' ? 'en' : 'zh')}
-              className="px-3 py-1.5 text-sm text-gray-300 hover:text-white border border-gray-600 rounded-lg hover:border-gray-400 transition-colors"
-            >
-              {locale === 'zh' ? 'EN' : '中文'}
-            </button> */}
+          <div className="flex items-center gap-6">
+            {/* Anchor links — hidden on mobile */}
+            <div className="hidden sm:flex items-center gap-5">
+              {anchors.map(({ id, label }) => (
+                <a
+                  key={id}
+                  href={`#${id}`}
+                  className={`text-sm transition-colors ${
+                    activeSection === id
+                      ? 'text-fugle-500 font-medium'
+                      : 'text-gray-400 hover:text-white'
+                  }`}
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
 
             {/* 富果投研平台 */}
             <a

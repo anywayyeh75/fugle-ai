@@ -36,7 +36,7 @@ export default function Platforms({ dict }: PlatformsProps) {
   }
 
   return (
-    <section id="platforms" className="py-24 bg-gradient-to-b from-black to-gray-900" ref={ref}>
+    <section id="platforms" className="py-24 scroll-mt-20 bg-gradient-to-b from-black to-gray-900" ref={ref}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           initial={{ y: 20, opacity: 0 }}
@@ -64,7 +64,7 @@ export default function Platforms({ dict }: PlatformsProps) {
             <ol className="space-y-4 mb-6">
               {[dict.platforms.claudeAi.step1, dict.platforms.claudeAi.step2, dict.platforms.claudeAi.step3].map((step, index) => (
                 <li key={index} className="flex items-start gap-4">
-                  <span className="flex-shrink-0 w-8 h-8 bg-[#D97757] text-white rounded-full flex items-center justify-center font-bold text-sm">
+                  <span className="flex-shrink-0 w-8 h-8 bg-fugle-500 text-black rounded-full flex items-center justify-center font-bold text-sm">
                     {index + 1}
                   </span>
                   <span className="text-gray-300 pt-1">{step}</span>
@@ -75,29 +75,30 @@ export default function Platforms({ dict }: PlatformsProps) {
             {/* MCP Server URL */}
             <div className="bg-gray-950 rounded-xl p-4 font-mono text-sm overflow-x-auto mb-8">
               <div className="text-gray-500 text-xs mb-1">MCP Server URL</div>
-              <div className="text-green-400">{MCP_SERVER_URL}</div>
+              <div className="text-fugle-400">{MCP_SERVER_URL}</div>
             </div>
 
             <div className="mt-auto space-y-3">
               <a
-                href="https://claude.ai/settings/connectors?modal=add-custom-connector"
+                href="https://claude.ai/new?q=%E8%AB%8B%E5%B9%AB%E6%88%91%E5%AE%89%E8%A3%9D%20Fugle%20AI%20%E5%8A%A9%E7%90%86%EF%BC%8C%E5%AE%89%E8%A3%9D%E8%AA%AA%E6%98%8E%E5%9C%A8%20https%3A%2F%2Ffugle.ai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full px-6 py-3 bg-[#D97757] hover:bg-[#c56847] text-white font-semibold rounded-xl transition-colors"
+                className="inline-flex items-center justify-center w-full px-6 py-3 bg-fugle-500 hover:bg-fugle-600 text-black font-semibold rounded-xl transition-colors"
               >
-                {dict.platforms.claudeAi.cta}
+                <Claude width="16" height="16" fill="currentColor" className="mr-2" />
+                {dict.platforms.claudeAi.ctaAiAssist}
                 <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </a>
+              <p className="text-gray-500 text-xs text-center">{dict.platforms.claudeAi.ctaAiAssistMicro}</p>
               <a
-                href="https://claude.ai/new?q=%E8%AB%8B%E5%B9%AB%E6%88%91%E5%AE%89%E8%A3%9D%20Fugle%20AI%20%E5%8A%A9%E7%90%86%EF%BC%8C%E5%AE%89%E8%A3%9D%E8%AA%AA%E6%98%8E%E5%9C%A8%20https%3A%2F%2Ffugle.ai"
+                href="https://claude.ai/settings/connectors?modal=add-custom-connector"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full px-6 py-3 border-2 border-[#D97757] text-[#D97757] hover:bg-[#D97757]/10 font-semibold rounded-xl transition-colors"
+                className="inline-flex items-center justify-center w-full px-6 py-3 border-2 border-fugle-500 text-fugle-500 hover:bg-fugle-500/10 font-semibold rounded-xl transition-colors"
               >
-                <Claude width="16" height="16" fill="#D97757" className="mr-2" />
-                {dict.platforms.claudeAi.ctaAiAssist}
+                {dict.platforms.claudeAi.cta}
                 <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
@@ -121,7 +122,7 @@ export default function Platforms({ dict }: PlatformsProps) {
             <ol className="space-y-4 mb-8">
               {[dict.platforms.claudeCode.step1, dict.platforms.claudeCode.step2, dict.platforms.claudeCode.step3].map((step, index) => (
                 <li key={index} className="flex items-start gap-4">
-                  <span className="flex-shrink-0 w-8 h-8 bg-[#D97757] text-white rounded-full flex items-center justify-center font-bold text-sm">
+                  <span className="flex-shrink-0 w-8 h-8 bg-fugle-500 text-black rounded-full flex items-center justify-center font-bold text-sm">
                     {index + 1}
                   </span>
                   <span className="text-gray-300 pt-1">{step}</span>
@@ -133,13 +134,13 @@ export default function Platforms({ dict }: PlatformsProps) {
               {/* CLI command snippet */}
               <div className="bg-gray-950 rounded-xl p-4 font-mono text-sm overflow-x-auto">
                 <div className="text-gray-300">
-                  <span className="text-green-400">$</span> {cliCommand}
+                  <span className="text-fugle-400">$</span> {cliCommand}
                 </div>
               </div>
 
               <button
                 onClick={handleCopy}
-                className="inline-flex items-center justify-center w-full px-6 py-3 border-2 border-[#D97757] hover:bg-[#D97757]/10 text-[#D97757] font-semibold rounded-xl transition-colors"
+                className="inline-flex items-center justify-center w-full px-6 py-3 border-2 border-fugle-500 hover:bg-fugle-500/10 text-fugle-500 font-semibold rounded-xl transition-colors"
               >
                 {copied ? '已複製！' : dict.platforms.claudeCode.cta}
                 {copied ? (
@@ -166,25 +167,34 @@ export default function Platforms({ dict }: PlatformsProps) {
           * {dict.platforms.note}
         </motion.p>
 
-        {/* ChatGPT Coming Soon Banner */}
+        {/* ChatGPT Waitlist */}
         <motion.div
+          id="waitlist"
           initial={{ y: 20, opacity: 0 }}
           animate={isInView ? { y: 0, opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-8 bg-gradient-to-br from-gray-800/30 to-gray-900/30 border border-gray-700/50 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-4 opacity-60"
+          className="mt-8 scroll-mt-20 bg-gradient-to-br from-gray-800/30 to-gray-900/30 border border-gray-700/50 rounded-2xl p-6 sm:p-8"
         >
-          <div className="w-12 h-12 bg-gray-700/30 rounded-xl flex items-center justify-center flex-shrink-0">
-            <ChatGPT width="28" height="28" fill="#6b7280" />
-          </div>
-          <div className="flex-1 text-center sm:text-left">
-            <div className="flex items-center justify-center sm:justify-start gap-3">
-              <h3 className="text-lg font-semibold text-gray-400">{dict.platforms.chatgpt.title}</h3>
-              <span className="px-2 py-0.5 bg-gray-700/50 text-gray-400 text-xs font-medium rounded-full">
-                {dict.platforms.chatgpt.comingSoon}
-              </span>
+          <div className="flex flex-col sm:flex-row items-start gap-4 mb-6">
+            <div className="w-12 h-12 bg-[#10a37f]/20 rounded-xl flex items-center justify-center flex-shrink-0">
+              <ChatGPT width="28" height="28" fill="#10a37f" />
             </div>
-            <p className="text-gray-500 text-sm mt-1">{dict.platforms.chatgpt.description}</p>
+            <div className="flex-1">
+              <h3 className="text-lg font-semibold text-white">{dict.waitlist.title}</h3>
+              <p className="text-gray-400 text-sm mt-1">{dict.waitlist.description}</p>
+            </div>
           </div>
+          <div className="w-full overflow-hidden rounded-xl">
+            <iframe
+              data-tally-src="https://tally.so/embed/PLACEHOLDER_FORM_ID?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+              loading="lazy"
+              width="100%"
+              height="150"
+              frameBorder={0}
+              title="ChatGPT Waitlist"
+            />
+          </div>
+          <p className="text-gray-600 text-xs mt-3 text-center">{dict.waitlist.privacy}</p>
         </motion.div>
       </div>
     </section>

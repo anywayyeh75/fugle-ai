@@ -100,7 +100,7 @@ export default function DemoChat({ dict }: DemoChatProps) {
   const current = conversations[activeIndex]
 
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-900 to-black" ref={containerRef}>
+    <section id="demo" className="py-24 scroll-mt-20 bg-gradient-to-b from-gray-900 to-black" ref={containerRef}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           initial={{ y: 20, opacity: 0 }}

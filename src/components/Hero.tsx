@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChatGPT, Claude } from "@/components/icons";
+import { Claude } from "@/components/icons";
 import type { Dictionary } from "@/lib/i18n";
 
 interface HeroProps {
@@ -44,21 +44,22 @@ export default function Hero({ dict }: HeroProps) {
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col items-center gap-3 max-w-md mx-auto"
         >
           <a
             href="#platforms"
-            className="flex-1 whitespace-nowrap px-8 py-4 bg-fugle-500 hover:bg-fugle-600 text-black font-semibold rounded-xl text-lg transition-all hover:scale-105 flex items-center justify-center gap-2"
+            className="w-full whitespace-nowrap px-8 py-4 bg-fugle-500 hover:bg-fugle-600 text-black font-semibold rounded-xl text-lg transition-all hover:scale-105 flex items-center justify-center gap-2"
           >
             <Claude width="24" height="24" fill="currentColor" />
             {dict.hero.ctaClaude}
           </a>
-          <span
-            className="flex-1 whitespace-nowrap px-8 py-4 border-2 border-dashed border-gray-600 text-gray-500 font-semibold rounded-xl text-lg flex items-center justify-center gap-2 opacity-50 cursor-not-allowed"
+          <p className="text-gray-500 text-sm">{dict.hero.ctaMicro}</p>
+          <a
+            href="#waitlist"
+            className="text-gray-400 hover:text-fugle-500 text-sm transition-colors underline underline-offset-4 decoration-gray-600 hover:decoration-fugle-500"
           >
-            <ChatGPT width="24" height="24" fill="currentColor" />
-            {dict.hero.ctaChatGPT}
-          </span>
+            {dict.hero.ctaChatGPTWaitlist}
+          </a>
         </motion.div>
       </div>
     </section>
