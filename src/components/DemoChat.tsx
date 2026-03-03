@@ -129,7 +129,7 @@ export default function DemoChat({ dict }: DemoChatProps) {
                           ? {
                               backgroundColor: 'rgba(255,255,255,0.45)',
                               animation: `progress-fill ${barDuration}ms linear forwards`,
-                              animationPlayState: 'running',
+                              animationPlayState: isInView ? 'running' : 'paused',
                             }
                           : { backgroundColor: 'rgba(255,255,255,0.45)', transform: 'scaleX(0)' }
                     }
